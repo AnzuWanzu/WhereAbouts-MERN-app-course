@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./SideDrawer.css";
 import ReactDOM from "react-dom";
+import { CSSTransition } from "react-transition-group";
 
 const SideDrawer = (props) => {
-  const content = <aside className="side-drawer">{props.children}</aside>;
+  const nodeRef = useRef(null); //added this since findDOMNode() is removed in new React versions
+
+  const content = (
+    <CSSTransition
+      in={props.show}
+      timeout={200}
+      classNames="slide-in-left"
+      mountOnEnter
+      unmountOnExit
+      nodeRef={nodeRef}
+    >
+      <aside className="side-drawer" ref={nodeRef}>
+        {props.children}
+      </aside>
+    </CSSTransition>
+  );
+
   return ReactDOM.createPortal(content, document.getElementById("drawer-hook"));
 };
 
