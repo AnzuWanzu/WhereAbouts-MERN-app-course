@@ -7,7 +7,7 @@ const Users = () => {
       id: "u1",
       name: "Angie Samson",
       image:
-        "https://www.goodnite.com/wp-content/uploads/2020/03/Places-to-Visit-on-A-Road-Trip-Around-California.jpg",
+        "https://samson-portfolio-seven.vercel.app/static/media/About.9d8988b996192a539883.jpg",
       places: 3,
     },
   ];
